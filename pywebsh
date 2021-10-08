@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import argparse
+import base64
 import json
 import requests
 import sys
+import tempfile
+import webbrowser
 
-POST_URL = 'https://websh.jiro4989.com/api/shellgei'
+POST_URL = "https://websh.jiro4989.com/api/shellgei"
 
 
 def post(code):
@@ -16,12 +19,25 @@ def post(code):
     return result
 
 
-if __name__ == '__main__':
-    p = argparse.ArgumentParser()
-    p.add_argument('code', type=str, help='code to execute on shellgeibot')
-    # p.add_argument('-i', '--image', type=str, help='image file path to upload')
-    args = p.parse_args()
+def print_result(result, property):
+    if property is None:
+        return
 
+    print("[ \033[36;1m{0}\033[m ] {1}".format(property, result[property]))
+
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument("code", type=str, help="code to execute on shellgeibot")
+    p.add_argument("-v", "--verbose", action="store_true")
+    args = p.parse_args()
     result = post(code=args.code)
-    print(result['stdout'], file=sys.stdout)
-    print(result['stderr'], file=sys.stderr)
+    if args.verbose:
+        for p in ["status", "elapsed_time", "system_message"]:
+            print_result(result, p)
+
+        print(result["stdout"], file=sys.stdout)
+        print(result["stderr"], file=sys.stderr)
+    else:
+        print(result["stdout"], file=sys.stdout)
+        print(result["stderr"], file=sys.stderr)
