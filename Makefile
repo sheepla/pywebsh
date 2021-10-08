@@ -27,5 +27,5 @@ format: ## Format code and write a file
 
 .PHONY: lint
 lint: ## Lint code
-	flake8 $(EXECUTABLE_SRC)
+	flake8 $(SRC)
 
