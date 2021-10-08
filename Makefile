@@ -23,7 +23,7 @@ uninstall: ## Uninstall programs
 
 .PHONY: format
 format: ## Format code and write a file
-	 black $(SRC)
+	black $(SRC)
 
 .PHONY: lint
 lint: ## Lint code
