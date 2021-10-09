@@ -2,9 +2,16 @@
 
 🐍 A small CLI [websh](https://github.com/jiro4989/websh) client written in Python
 
+## Features
+
+- [x] Run shell command without huge Docker image
+- [x] Save the execution result images
+- [x] Open execution result images with your default browser
+- [ ] Upload local images
+
 ## Usage
 
-```bash
+```
 usage: pywebsh [-h] [-v] [-o] code
 
 positional arguments:
