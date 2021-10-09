@@ -35,23 +35,16 @@ def save_image(b64img):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
+    p.add_argument("code", type=str, help="code to execute on shellgeibot")
     p.add_argument(
-            "code",
-            type=str,
-            help="code to execute on shellgeibot"
-            )
+        "-v", "--verbose", action="store_true", help="output verbose information"
+    )
     p.add_argument(
-            "-v",
-            "--verbose",
-            action="store_true",
-            help="output verbose information"
-            )
-    p.add_argument(
-            "-o",
-            "--open",
-            action="store_true",
-            help="open images with your default browser"
-            )
+        "-o",
+        "--open",
+        action="store_true",
+        help="open images with your default browser",
+    )
     args = p.parse_args()
     result = post(code=args.code)
 
