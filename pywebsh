@@ -67,4 +67,5 @@ if __name__ == "__main__":
 
     for images in result["images"]:
         filename = save_image(b64img=images["image"])
-        webbrowser.open(url=filename)
+        if args.open:
+            webbrowser.open(url=filename)
