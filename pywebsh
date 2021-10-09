@@ -16,11 +16,11 @@ def post(code):
     return result
 
 
-def print_result(result, property):
-    if property is None:
+def print_result(result, value):
+    if value is None:
         return
 
-    print("[ \033[36;1m{0}\033[m ] {1}".format(property, result[property]))
+    print("[ \033[36;1m{0}\033[m ] {1}".format(value, result[value]))
 
 
 if __name__ == "__main__":
