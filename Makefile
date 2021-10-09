@@ -6,7 +6,9 @@ SHAREDIR := $(PREFIX)/share
 
 SRC := $(NAME)
 DEST := $(BINDIR)/$(NAME)
-
+LICENSE_SRC := LICENSE
+LICENSE_DEST_DIR := $(SHAREDIR)/licenses/$(NAME)
+LICENSE_DEST := $(LICENSE_DEST_DIR)/LICENSE
 
 .PHONY: help
 help: ## Print help documents
@@ -16,10 +18,13 @@ help: ## Print help documents
 .PHONY: install
 install: ## Install programs
 	install -Dm 0755 $(SRC) $(DEST)
+	install -d $(LICENSE_DEST_DIR)
+	install -Dm644 $(LICENSE_SRC) $(LICENSE_DEST)
 
 .PHONY: uninstall
 uninstall: ## Uninstall programs
-	rm -f $(DEST)
+	rm $(DEST)
+	rm -r $(LICENSE_DEST_DIR)
 
 .PHONY: format
 format: ## Format code and write a file
