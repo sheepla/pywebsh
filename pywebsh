@@ -4,6 +4,9 @@ import argparse
 import json
 import requests
 import sys
+import base64
+import tempfile
+import webbrowser
 
 POST_URL = "https://websh.jiro4989.com/api/shellgei"
 
@@ -23,18 +26,45 @@ def print_result(result, value):
     print("[ \033[36;1m{0}\033[m ] {1}".format(value, result[value]))
 
 
+def save_image(b64img):
+    img = base64.b64decode(b64img)
+    with tempfile.NamedTemporaryFile("wb", delete=False) as t:
+        t.write(img)
+        return t.name
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("code", type=str, help="code to execute on shellgeibot")
-    p.add_argument("-v", "--verbose", action="store_true")
+    p.add_argument(
+            "code",
+            type=str,
+            help="code to execute on shellgeibot"
+            )
+    p.add_argument(
+            "-v",
+            "--verbose",
+            action="store_true",
+            help="output verbose information"
+            )
+    p.add_argument(
+            "-o",
+            "--open",
+            action="store_true",
+            help="open images with your default browser"
+            )
     args = p.parse_args()
     result = post(code=args.code)
+
     if args.verbose:
-        for p in ["status", "elapsed_time", "system_message"]:
-            print_result(result, p)
+        for v in ["status", "elapsed_time", "system_message"]:
+            print_result(result, v)
 
         print(result["stdout"], file=sys.stdout)
         print(result["stderr"], file=sys.stderr)
     else:
         print(result["stdout"], file=sys.stdout)
         print(result["stderr"], file=sys.stderr)
+
+    for images in result["images"]:
+        filename = save_image(b64img=images["image"])
+        webbrowser.open(url=filename)
