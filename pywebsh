@@ -17,7 +17,7 @@ def post(code):
 
 
 def print_result(result, value):
-    if value is None:
+    if value is None or "":
         return
 
     print("[ \033[36;1m{0}\033[m ] {1}".format(value, result[value]))
