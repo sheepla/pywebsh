@@ -5,8 +5,15 @@
 ## Usage
 
 ```bash
-pywebsh -h
-pywebsh CODE
+usage: pywebsh [-h] [-v] [-o] code
+
+positional arguments:
+  code           code to execute on shellgeibot
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --verbose  output verbose information
+  -o, --open     open images with your default browser
 ```
 
 ## Examples
@@ -14,6 +21,7 @@ pywebsh CODE
 ```
 $ pywebsh 'uname -a'
 Linux efa5b0542de5 4.15.0-55-generic #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+$ pywebsh --open 'screenfetch | textimg -s'
 ```
 
 ## Installation
