@@ -25,15 +25,24 @@ optional arguments:
 
 ## Examples
 
+### Run commands
+
 ```
 $ pywebsh 'uname -a'
 Linux efa5b0542de5 4.15.0-55-generic #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-$ pywebsh --open 'screenfetch | textimg -s'
+```
+
+### Save and open images
+
+To save images, output the image files to `/images/` on the websh. When the `-o` / `--open` flag is enabled, the saved image will open in your system's default browser.
+
+```
+$ pywebsh --open 'screenfetch | textimg -o /images/out.png'
 ```
 
 ## Installation
 
-Requires Python (testing `v3.9.7`). Clone or download this repository then run below:
+Requires Python (testing on `v3.9.7`). Clone or download this repository then run below:
 
 ```bash
 sudo make install
