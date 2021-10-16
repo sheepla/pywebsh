@@ -41,7 +41,7 @@ $ pywebsh 'uname -a'
 Linux efa5b0542de5 4.15.0-55-generic #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-### Save and open images
+### Save (and open) images
 
 To save images, output the image files to `/images/` on the websh. When the `-o` / `--open` flag is enabled, the saved image will open in your system's default browser.
 
