@@ -1,9 +1,9 @@
-<div align="center"><h1>🐍 pywebsh</h1></div>
-
 <div align="right">
     <img src="https://img.shields.io/static/v1?label=Language&message=Python&color=blue&style=flat-square"/>
-    <img src="https://img.shields.io/static/v1?label=License&message=Unlicense&color=darkgray&style=flat-square"/>
+    <a href="./LICENSE"><img src="https://img.shields.io/static/v1?label=License&message=Unlicense&color=darkgray&style=flat-square"/></a>
 </div>
+
+<div align="center"><h1>🐍 pywebsh</h1></div>
 
 <div align="center">
     
