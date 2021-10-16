@@ -1,6 +1,15 @@
-# pywebsh
+<div align="center"><h1>🐍 pywebsh</h1></div>
 
-🐍 A small CLI [websh](https://github.com/jiro4989/websh) client written in Python
+<div align="right">
+    <img src="https://img.shields.io/static/v1?label=Language&message=Python&color=blue&style=flat-square"/>
+    <img src="https://img.shields.io/static/v1?label=License&message=Unlicense&color=darkgray&style=flat-square"/>
+</div>
+
+<div align="center">
+    
+A small command-line [websh](https://github.com/jiro4989/websh) client written in Python
+
+</div>
 
 ## Features
 
