@@ -52,7 +52,9 @@ if __name__ == "__main__":
         for v in ["status", "elapsed_time", "system_message"]:
             print_result(result, v)
 
+        print("[ \033[32;1m{0}\033[m ] {0}".format("stdout"))
         print(result["stdout"], file=sys.stdout)
+        print("[ \033[31;1m{0}\033[m ] {0}".format("stdout"), file=sys.stderr)
         print(result["stderr"], file=sys.stderr)
     else:
         print(result["stdout"], file=sys.stdout)
