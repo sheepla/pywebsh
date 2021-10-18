@@ -11,8 +11,8 @@ import webbrowser
 POST_URL = "https://websh.jiro4989.com/api/shellgei"
 
 
-def post(code):
-    data = json.dumps({"code": code, "images": []})
+def post(code, b64imgs):
+    data = json.dumps({"code": code, "images": b64imgs})
     response = requests.post(url=POST_URL, data=data)
     response.raise_for_status()
     result = json.loads(response.text)
@@ -33,6 +33,12 @@ def save_image(b64img):
         return t.name
 
 
+def encode_image(path):
+    with open(file=path, mode="rb") as f:
+        data = base64.b64encode(f.read())
+        return data.decode(encoding="utf-8")
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("code", type=str, help="code to execute on shellgeibot")
@@ -45,8 +51,14 @@ if __name__ == "__main__":
         action="store_true",
         help="open images with your default browser",
     )
+    p.add_argument("-i", "--images", action="append", help="images to upload")
     args = p.parse_args()
-    result = post(code=args.code)
+
+    b64imgs = []
+    for path in args.images:
+        b64imgs.append(encode_image(path=path))
+
+    result = post(code=args.code, b64imgs=b64imgs)
 
     if args.verbose:
         for v in ["status", "elapsed_time", "system_message"]:
