@@ -56,7 +56,7 @@ $ pywebsh --open 'screenfetch | textimg -o /images/out.png'
 You can upload and use local images. If you specify the image path in the `-i` / `--images` option and execute it, it will be saved under `/media/` directory on the websh environment.
 
 ```bash
-$ pywebsh --images foo.png --images --bar.png 'ls -lA /media'
+$ pywebsh --images foo.png --images bar.png 'ls -lA /media'
 合計 176
 -rw-r--r-- 1 root root    908 10月 20 20:28 0
 -rw-r--r-- 1 root root 175821 10月 20 20:28 1
