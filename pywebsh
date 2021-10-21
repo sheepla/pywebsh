@@ -55,8 +55,9 @@ if __name__ == "__main__":
     args = p.parse_args()
 
     b64imgs = []
-    for path in args.images:
-        b64imgs.append(encode_image(path=path))
+    if args.images is not None:
+        for path in args.images:
+            b64imgs.append(encode_image(path=path))
 
     result = post(code=args.code, b64imgs=b64imgs)
 
