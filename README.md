@@ -16,7 +16,7 @@ A small command-line [websh](https://github.com/jiro4989/websh) client written i
 - [x] Run shell command without huge Docker image
 - [x] Save the execution result images
 - [x] Open execution result images with your default browser
-- [ ] Upload local images
+- [x] Upload local images
 
 ## Usage
 
@@ -36,17 +36,30 @@ optional arguments:
 
 ### Run commands
 
-```
+Just specify the command you want to execute in the first argument.
+
+```bash
 $ pywebsh 'uname -a'
 Linux efa5b0542de5 4.15.0-55-generic #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-### Save (and open) images
+### Save (then Open) images
 
-To save images, output the image files to `/images/` on the websh. When the `-o` / `--open` flag is enabled, the saved image will open in your system's default browser.
+To save images, output the image files to `/images/` on the websh environment. When the `-o` / `--open` flag is enabled, the saved image will open in your system's default browser.
 
-```
+```bash
 $ pywebsh --open 'screenfetch | textimg -o /images/out.png'
+```
+
+### Upload local images
+
+You can upload and use local images. If you specify the image path in the `-i` / `--images` option and execute it, it will be saved under `/media/` directory on the websh environment.
+
+```bash
+$ pywebsh --images foo.png --images bar.png 'ls -lA /media'
+合計 176
+-rw-r--r-- 1 root root    908 10月 20 20:28 0
+-rw-r--r-- 1 root root 175821 10月 20 20:28 1
 ```
 
 ## Installation
