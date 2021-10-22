@@ -66,7 +66,7 @@ $ pywebsh --images foo.png --images bar.png 'ls -lA /media'
 
 ## Installation
 
-Requires Python (testing on `v3.9.7`). Clone or download this repository then run below:
+Requires Python (testing on `v3.9.7`). Clone or this repository or download archive from [releases](https://github.com/sheepla/pywebsh/releases) page then run below:
 
 ```bash
 sudo make install
