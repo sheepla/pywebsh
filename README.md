@@ -21,15 +21,17 @@ A small command-line [websh](https://github.com/jiro4989/websh) client written i
 ## Usage
 
 ```
-usage: pywebsh [-h] [-v] [-o] code
+usage: pywebsh [-h] [-v] [-o] [-i IMAGES] code
 
 positional arguments:
-  code           code to execute on shellgeibot
+  code                  code to execute on shellgeibot
 
 optional arguments:
-  -h, --help     show this help message and exit
-  -v, --verbose  output verbose information
-  -o, --open     open images with your default browser
+  -h, --help            show this help message and exit
+  -v, --verbose         output verbose information
+  -o, --open            open images with your default browser
+  -i IMAGES, --images IMAGES
+                        images to upload
 ```
 
 ## Examples
