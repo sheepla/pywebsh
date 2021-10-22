@@ -43,7 +43,7 @@ $ pywebsh 'uname -a'
 Linux efa5b0542de5 4.15.0-55-generic #60-Ubuntu SMP Tue Jul 2 18:22:20 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-### Save (then Open) images
+### Save (then Open) execution result images
 
 To save images, output the image files to `/images/` on the websh environment. When the `-o` / `--open` flag is enabled, the saved image will open in your system's default browser.
 
@@ -53,7 +53,7 @@ $ pywebsh --open 'screenfetch | textimg -o /images/out.png'
 
 ### Upload local images
 
-You can upload and use local images. If you specify the image path in the `-i` / `--images` option and execute it, it will be saved under `/media/` directory on the websh environment.
+You can upload and use local images. If you specify the image path in the `-i` / `--images` option and execute it, it will be saved in `0`, `1`, ... files under the `/media/` directory on the websh environment.
 
 ```bash
 $ pywebsh --images foo.png --images bar.png 'ls -lA /media'
