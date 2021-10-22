@@ -41,7 +41,7 @@ def encode_image(path):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("code", type=str, help="code to execute on shellgeibot")
+    p.add_argument("code", type=str, help="code to execute on websh")
     p.add_argument(
         "-v", "--verbose", action="store_true", help="output verbose information"
     )
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         "-o",
         "--open",
         action="store_true",
-        help="open images with your default browser",
+        help="open execution result images with your default browser",
     )
     p.add_argument("-i", "--images", action="append", help="images to upload")
     args = p.parse_args()
